@@ -8,18 +8,18 @@
 ## BackEnd Portafoly
 Este es un proyecto backend de mi portafolio que utiliza las siguientes librerías:
 
-> Lifeway 1.0.0: una librería para manejar la gestión de usuarios y permisos en una aplicación web.
-> JPA 2.2.0: una librería para mapear objetos Java a una base de datos relacional.
-> MySQL Connector/J 8.0.26: un driver para conectarse a una base de datos MySQL.
-> Validation API 2.0.1.Final: una librería para validar datos de entrada en una aplicación.
-> Spring Security 5.5.0: un framework de seguridad para aplicaciones web.
-> JSON Web Token (JWT) 0.11.2: una librería para generar y validar tokens JWT.
+-> Lifeway 1.0.0: una librería para manejar la gestión de usuarios y permisos en una aplicación web.
+-> JPA 2.2.0: una librería para mapear objetos Java a una base de datos relacional.
+-> MySQL Connector/J 8.0.26: un driver para conectarse a una base de datos MySQL.
+-> Validation API 2.0.1.Final: una librería para validar datos de entrada en una aplicación.
+-> Spring Security 5.5.0: un framework de seguridad para aplicaciones web.
+-> JSON Web Token (JWT) 0.11.2: una librería para generar y validar tokens JWT.
 
 ## Requerimientos
 Para poder ejecutar este proyecto, es necesario tener instalado lo siguiente:
 
-> Java 17 o superior
-> MySQL Server 8.0 o superior
+-> Java 17 o superior
+-> MySQL Server 8.0 o superior
 
 ## Configuración
 Antes de ejecutar el proyecto, se deben realizar las siguientes configuraciones:
@@ -29,10 +29,10 @@ Configurar la conexión a la base de datos en el archivo application.properties 
 application.propierties
 
 
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_DATABASE
-spring.datasource.username=root
-spring.datasource.password=YOUR_PASSWORD
+> spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+> spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_DATABASE
+> spring.datasource.username=root
+> spring.datasource.password=YOUR_PASSWORD
 
 Ejecutar el archivo Main.java que se encuentra en la carpeta src/main/java. Esto hará que se corran las migraciones y se creen las tablas necesarias en la base de datos.
 No es necesario crear ningún usuario manualmente, ya que el proyecto creará un usuario administrador por defecto (admin/admin) y se conectará a la base de datos configurada en el paso 2.
