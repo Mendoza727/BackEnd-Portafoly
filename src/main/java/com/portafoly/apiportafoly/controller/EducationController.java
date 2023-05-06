@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import org.springframework.data.domain.Pageable;
 
@@ -25,7 +24,7 @@ import jakarta.validation.Valid;
 public class EducationController {
 
     @Autowired
-    EducationRepository educationRepository;
+    private EducationRepository educationRepository;
 
     @GetMapping
     public Page<GetInfoEducationDTO> GetEducation(Pageable paginacion) {
@@ -33,8 +32,7 @@ public class EducationController {
     }
 
     @PostMapping
-    public ResponseEntity<DataResponseEducationDto> SetNewEducation (@RequestBody @Valid EducationDto educationDto,
-    UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<DataResponseEducationDto> SetNewEducation (@RequestBody @Valid EducationDto educationDto) {
         EducationClass educationClass = educationRepository.save(new EducationClass(educationDto));
         DataResponseEducationDto response = new DataResponseEducationDto(
             educationClass.getId(), 
