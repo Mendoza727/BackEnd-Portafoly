@@ -28,7 +28,6 @@ Crear una base de datos en MySQL con el nombre YOUR_DATABASE.
 Configurar la conexión a la base de datos en el archivo application.properties que se encuentra en la carpeta src/main/resources:
 application.propierties
 
-
 > spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 > spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_DATABASE
 > spring.datasource.username=root
