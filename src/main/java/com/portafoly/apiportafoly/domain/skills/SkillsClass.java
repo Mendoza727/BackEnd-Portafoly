@@ -1,5 +1,6 @@
 package com.portafoly.apiportafoly.domain.skills;
 
+import com.portafoly.apiportafoly.domain.skills.Dtos.AddNewSkillDTO;
 import com.portafoly.apiportafoly.domain.skills.Enums.TypeServiceSkill;
 
 import jakarta.persistence.Entity;
@@ -30,5 +31,12 @@ public class SkillsClass {
 
     @Enumerated(EnumType.STRING)
     private TypeServiceSkill tipo;
+
+
+    public SkillsClass(AddNewSkillDTO addNewSkillDTO) {
+        this.logo = addNewSkillDTO.logo();
+        this.skill = addNewSkillDTO.skill();
+        this.tipo = addNewSkillDTO.tipo();
+    }
 
 }

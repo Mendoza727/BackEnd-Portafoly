@@ -1,5 +1,8 @@
 package com.portafoly.apiportafoly.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +14,7 @@ import com.portafoly.apiportafoly.domain.experience.ExperienceClass;
 import com.portafoly.apiportafoly.domain.experience.ExperienceRepository;
 import com.portafoly.apiportafoly.domain.experience.Dtos.AddNewExperienceDTO;
 import com.portafoly.apiportafoly.domain.experience.Dtos.DataResponseDto;
+import com.portafoly.apiportafoly.domain.experience.Dtos.GetExperienceDTO;
 
 import jakarta.validation.Valid;
 
@@ -25,13 +29,18 @@ public class ExperienceController {
     }
 
     @GetMapping
-    public void GetInfoExperience() {
-        System.out.println("entro al metodo");
+    public Page<GetExperienceDTO> GetEducation(Pageable paginacion) {
+        return experienceRepository.findAll(paginacion).map(GetExperienceDTO::new);
     }
 
     @PostMapping
     public ResponseEntity<DataResponseDto> SetInfoExperience(@RequestBody @Valid AddNewExperienceDTO experience) {
         ExperienceClass experienceClass = experienceRepository.save(new ExperienceClass(experience));
+        String tecnologias = "No hay informacion";
+        if ( experience.tecnologias() != null) {
+            String tecnologia = experience.tecnologias();
+            tecnologias = tecnologia;
+        }
         DataResponseDto response = new DataResponseDto(
             experienceClass.getId(),
             experience.empresa(),
@@ -40,7 +49,7 @@ public class ExperienceController {
             experience.fechaF(),
             experience.ciudad(),
             experience.descripcion(),
-            experience.descripcion()  
+            tecnologias  
         );
         return ResponseEntity.created(null).body(response);
     }
