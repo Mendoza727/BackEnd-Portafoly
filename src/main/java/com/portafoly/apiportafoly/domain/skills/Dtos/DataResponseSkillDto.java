@@ -6,5 +6,7 @@ public record DataResponseSkillDto(
     Long id,
     String logo,
     String skill,
-    TypeServiceSkill tipo
+    TypeServiceSkill tipo,
+    String level,
+    Integer stars
 ) {}

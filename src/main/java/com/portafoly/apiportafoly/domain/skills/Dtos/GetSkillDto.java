@@ -6,7 +6,9 @@ public record GetSkillDto(
     Long id,
     String logo,
     String skill,
-    String tipo
+    String tipo,
+    String level,
+    Integer stars
 ) {
         
     public GetSkillDto(SkillsClass skillsClass) {
@@ -14,7 +16,9 @@ public record GetSkillDto(
             skillsClass.getId(),
             skillsClass.getLogo(),
             skillsClass.getSkill(),
-            skillsClass.getTipo().toString()
+            skillsClass.getTipo().toString(),
+            skillsClass.getLevel(),
+            skillsClass.getStars()
         );
     }
     

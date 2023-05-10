@@ -15,5 +15,9 @@ public record AddNewSkillDTO(
     String skill, 
     
     @NotNull
-    TypeServiceSkill tipo
+    TypeServiceSkill tipo,
+
+    String level,
+
+    Integer stars
 ) {}

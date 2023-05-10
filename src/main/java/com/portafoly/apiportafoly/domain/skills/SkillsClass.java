@@ -6,9 +6,12 @@ import com.portafoly.apiportafoly.domain.skills.Enums.TypeServiceSkill;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -28,6 +31,8 @@ public class SkillsClass {
     private Long id;
     private String logo;
     private String skill;
+    private String level;
+    private Integer stars;
 
     @Enumerated(EnumType.STRING)
     private TypeServiceSkill tipo;
@@ -37,6 +42,8 @@ public class SkillsClass {
         this.logo = addNewSkillDTO.logo();
         this.skill = addNewSkillDTO.skill();
         this.tipo = addNewSkillDTO.tipo();
+        this.level = addNewSkillDTO.level();
+        this.stars = addNewSkillDTO.stars();
     }
 
 }

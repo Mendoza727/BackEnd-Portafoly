@@ -5,5 +5,6 @@ public enum TypeServiceSkill {
     Database,
     FrontEnd,
     BackEnd,
-    Ambas
+    Ambas,
+    ambas
 }
