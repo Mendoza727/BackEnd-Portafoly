@@ -1,7 +1,6 @@
 package com.portafoly.apiportafoly.controller;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portafoly.apiportafoly.domain.skills.SkillsClass;
@@ -17,7 +15,6 @@ import com.portafoly.apiportafoly.domain.skills.SkillsRepository;
 import com.portafoly.apiportafoly.domain.skills.Dtos.AddNewSkillDTO;
 import com.portafoly.apiportafoly.domain.skills.Dtos.DataResponseSkillDto;
 import com.portafoly.apiportafoly.domain.skills.Dtos.GetSkillDto;
-import com.portafoly.apiportafoly.domain.skills.Enums.TypeServiceSkill;
 
 import jakarta.validation.Valid;
 
@@ -32,7 +29,7 @@ public class SkillsController {
     }
     
     @GetMapping
-    public Page<GetSkillDto> GetInfoSkills(@PageableDefault(size =  5) Pageable pagination) {
+    public Page<GetSkillDto> GetInfoSkills(@PageableDefault(size =  20) Pageable pagination) {
         return skillsRepository.findAll(pagination).map(GetSkillDto::new);
     }
 
